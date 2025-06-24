@@ -25,6 +25,17 @@ const nextConfig = {
   poweredByHeader: false,
   output: isCN ? "standalone" : undefined,
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
+  // ✅ 首页重定向到 /editor
+  async redirects() {
+    return [
+      {
+        source: "/",
+        destination: "/editor",
+        permanent: false,
+      },
+    ];
+  },
+  
   experimental: {
     serverActions: {
       allowedOrigins: ["json4u.com", "*.json4u.com", "json4u.cn", "*.json4u.cn"],
